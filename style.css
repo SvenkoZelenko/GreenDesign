@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Benton';
+  src: url('fonts/BentonModDisp-Black.otf') format('truetype');
+}
+body {
+  font-family: 'Benton', sans-serif;
+}
