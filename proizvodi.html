@@ -1,56 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Green Design</title>
+<head>
+    <title>Proizvodi - Green Design</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+     <link rel="stylesheet" href="style.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
     </script>
-  </head>
-  <body>
+</head>
+<body>
     <header class="navbar">
-      <div class="logo">
-        <img src="favicon.png" alt="Logo" style="height: 100px;">
-      </div>
-      <nav>
-        <ul>
-        <li><a href="biljke.html">Biljke</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="Onama.html">O nama</a></li>
-        <li><a href="proizvodi.html">Trgovina</a></li>
-      </ul>
-      </nav>
-      <div class="icons">
-        <input type="text" placeholder="Search">
-        <button>🔍</button>
-      </div>
-    </header>
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Tamo gdje cvate cvijeće, postoji nada</h1>
-        <p>Pronađite svoje omiljene biljke za dom ili ured. Povrće, Sjemenje, Citrusi, Voćke, Ljekovito bilje i još mnogo toga…</p>
-        <button>Naši proizvodi</button>
-        <p>280+ lokacija širom Hrvatske – uvijek u vašoj blizini. </p>
-      </div>
-      <div class="hero-image">
-        <img src="https://i.pinimg.com/736x/69/41/36/694136938e83fdd761b673cbd838856e.jpg" alt="Main plant">
-      </div>
-    </section>
-  
-    <section class="info">
-      <div class="info-block">
-        <img src="https://i.pinimg.com/736x/69/41/36/694136938e83fdd761b673cbd838856e.jpg" alt="Decorative plant">
-        <div>
-          <h2>Ukrasite svoj dom prirodnom ljepotom</h2>
-          <p>Zelene biljke većinu svoje energije dobivaju iz sunčeve svjetlosti putem fotosinteze primarnih kloroplasta koji nastaju endosimbiozom s cijanobakterijama.</p>
-          <button>Pogledaj vise</button>
-          <a href="proizvodi.html"><button>Prikazi proizvode</button></a>
+        <div class="logo">
+            <img src="favicon.png" alt="Logo">
+            <span>Green Design</span>
         </div>
-      </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="biljke.html">Biljke</a></li>
+                <li><a href="proizvodi.html">Trgovina</a></li>
+                <li><a href="Onama.html">O nama</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <input type="text" placeholder="Pretražite proizvode...">
+            <button>🔍</button>
+            <button class="cart-icon">
+                🛒
+                <span class="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-shop">
+        <h1>Naša Trgovina</h1>
+        <p>Otkrijte našu kolekciju pažljivo odabranih biljaka i dodataka za vaš dom i ured. Sve što trebate za stvaranje zelenog oaza.</p>
     </section>
-      <script src="script.js"></script>
-      Ovo je test
-      Ja volim Paulu
-  </body>
-</html>
+
+    <section class="sale-banner">
+        <div class="sale-content">
+            <h2>Veliki Popust</h2>
+            <p class="discount">Popust do 20% za sve članove programa vjernosti</p>
+            <button class="discover-btn">Otkrijte Sada</button>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <div class="feature-icon">🚚</div>
+            <h3>Besplatna Dostava</h3>
+            <p>Besplatna dostava za sve narudžbe veće od 50€</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">💳</div>
+            <h3>Sigurno Plaćanje</h3>
+            <p>100% sigurno plaćanje. Prihvaćamo sve glavne kartice</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <h3>Prijateljski Servis</h3>
+            <p>24/7 podrška za sve vaše potrebe i pitanja</p>
+        </div>
+    </section>
+
+    <section class="promo-sections">
+        <div class="promo-card">
+            <h3>Biljke za Interijer</h3>
+            <p>Najbolje prodavani proizvodi za uljepšavanje vašeg doma</p>
+            <button class="shop-now-btn">Kupuj Sada</button>
+        </div>
+        <div class="promo-card">
+            <h3>Biljke za Zdravlje</h3>
+            <p>Otkrijte našu kolekciju zdravih i ljekovitih biljaka</p>
+            <button class="shop-now-btn">Kupuj Sada</button>
+        </div>
+    </section>
+
+    <section class="categories">
+        <h2>Naši Proizvodi</h2>
+        
+        <div class="category-tabs">
+            <div class="category-tab active" data-category="all">Sve Kategorije</div>
+            <div class="category-tab" data-category="indoor">Sobne Biljke</div>
+            <div class="category-tab" data-category="outdoor">Vanjski Prostori</div>
+            <div class="category-tab" data-category="accessories">Dodaci</div>
+        </div>
