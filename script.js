@@ -46,47 +46,24 @@ let cart = [];
             });
         });
 
-        // Funkcionalnost dodavanja u košaricu
+        //updejtanje broja kod kosarice
+        let cartCount2 = 0;
+
+            
         document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', function() {
-                const productCard = this.closest('.product-card');
-                const productName = productCard.querySelector('.product-name').textContent;
-                const productPrice = productCard.querySelector('.product-price').textContent;
-                
-                // Dodaj proizvod u košaricu
-                cart.push({
-                    name: productName,
-                    price: productPrice
-                });
-                
-                cartCount++;
-                
-                // Ažuriraj broj u košarici
+            button.addEventListener('click', () => {
+                cartCount2++;
                 const cartCountElement = document.querySelector('.cart-count');
-                if (cartCountElement) {
-                    cartCountElement.textContent = cartCount;
-                    
-                    // Animacija košarice
-                    const cartIcon = document.querySelector('.cart-icon');
-                    if (cartIcon) {
-                        cartIcon.style.transform = 'scale(1.2)';
-                        cartIcon.style.transition = 'transform 0.3s ease';
-                        
-                        setTimeout(() => {
-                            cartIcon.style.transform = 'scale(1)';
-                        }, 300);
-                    }
-                }
+                cartCountElement.textContent = cartCount2;
 
-                // Promijeni dugme privremeno
-                this.style.background = '#85c7a3';
-                this.style.transition = 'all 0.3s ease';
-                this.textContent = 'Dodano!';
 
+                // Add visual feedback (scale animation)
+                cartCountElement.classList.add('bump');
+
+                // Remove the animation class after it finishes
                 setTimeout(() => {
-                    this.style.background = '#2a5d43';
-                    this.textContent = 'Dodaj u Košaricu';
-                }, 1500);
+                    cartCountElement.classList.remove('bump');
+                }, 300); // match duration of animation
             });
         });
 
@@ -139,7 +116,7 @@ let cart = [];
 
         // Funkcionalnost košarice (klik na ikonu košarice)
         document.querySelector('.cart-icon').addEventListener('click', function() {
-            if (cart.length === 0) {
+            if (cartCount2 == 0) {
                 alert('Košarica je prazna!');
                 return;
             }
