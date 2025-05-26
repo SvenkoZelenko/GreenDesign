@@ -177,6 +177,7 @@ body {
   align-items: center;
   gap: 1rem;
 }
+
 .navbar .icons input {
   padding: 0.5rem;
   border: none;
@@ -243,17 +244,6 @@ body {
   overflow: hidden;
 }
 
-.hero-shop::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ffffff" opacity="0.1"/></svg>');
-  background-size: 50px 50px;
-}
-
 .hero-shop h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
@@ -275,27 +265,6 @@ body {
   margin: 2rem 0;
   position: relative;
   overflow: hidden;
-}
-
-.sale-banner::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 0.2; }
-}
-
-.sale-content {
-  position: relative;
-  z-index: 2;
 }
 
 .sale-content h2 {
