@@ -24,6 +24,8 @@ body {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+ position: relative;
+  left: 100px; /* Try different values */
 }
 
 .navbar nav ul li a {
