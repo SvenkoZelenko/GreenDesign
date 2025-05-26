@@ -11,8 +11,8 @@ let images = [
     currentIndex = (currentIndex + 1) % images.length;
     img.src = images[currentIndex];
   }
-  
 setInterval(rotateHeroImage, 5000);
+
 let cart = [];
 let cartCount = 0;
 document.querySelectorAll('.category-tab').forEach(tab => {
