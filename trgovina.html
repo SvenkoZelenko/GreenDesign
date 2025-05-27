@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Proizvodi - Green Design</title>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="favicon.png">
-     <link rel="stylesheet" href="style.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
-    </script>
-    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
 </head>
+
 <body>
     <header class="navbar">
         <div class="logo">
@@ -34,9 +36,136 @@
         </div>
     </header>
 
+
+    <div id="cart-app">
+        <template>
+            <TransitionRoot as="template" :show="open">
+                <Dialog class="relative z-10" @close="open = false">
+                    <TransitionChild as="template" enter="ease-in-out duration-500" enter-from="opacity-0"
+                        enter-to="opacity-100" leave="ease-in-out duration-500" leave-from="opacity-100" leave-to="opacity-0">
+                        <div class="fixed inset-0 bg-gray-500/75 transition-opacity" />
+                    </TransitionChild>
+        
+                    <div class="fixed inset-0 overflow-hidden">
+                        <div class="absolute inset-0 overflow-hidden">
+                            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                                <TransitionChild as="template"
+                                    enter="transform transition ease-in-out duration-500 sm:duration-700"
+                                    enter-from="translate-x-full" enter-to="translate-x-0"
+                                    leave="transform transition ease-in-out duration-500 sm:duration-700"
+                                    leave-from="translate-x-0" leave-to="translate-x-full">
+                                    <DialogPanel class="pointer-events-auto w-screen max-w-md">
+                                        <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                                            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                                                <div class="flex items-start justify-between">
+                                                    <DialogTitle class="text-lg font-medium text-gray-900">Shopping cart
+                                                    </DialogTitle>
+                                                    <div class="ml-3 flex h-7 items-center">
+                                                        <button type="button"
+                                                            class="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
+                                                            @click="open = false">
+                                                            <span class="absolute -inset-0.5" />
+                                                            <span class="sr-only">Close panel</span>
+                                                            <XMarkIcon class="size-6" aria-hidden="true" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+        
+                                                <div class="mt-8">
+                                                    <div class="flow-root">
+                                                        <ul role="list" class="-my-6 divide-y divide-gray-200">
+                                                            <li v-for="product in products" :key="product.id" class="flex py-6">
+                                                                <div
+                                                                    class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                                                    <img :src="product.imageSrc" :alt="product.imageAlt"
+                                                                        class="size-full object-cover" />
+                                                                </div>
+        
+                                                                <div class="ml-4 flex flex-1 flex-col">
+                                                                    <div>
+                                                                        <div
+                                                                            class="flex justify-between text-base font-medium text-gray-900">
+                                                                            <h3>
+                                                                                <a :href="product.href">{{ product.name }}</a>
+                                                                            </h3>
+                                                                            <p class="ml-4">{{ product.price }}</p>
+                                                                        </div>
+                                                                        <p class="mt-1 text-sm text-gray-500">{{ product.color
+                                                                            }}</p>
+                                                                    </div>
+                                                                    <div class="flex flex-1 items-end justify-between text-sm">
+                                                                        <p class="text-gray-500">Qty {{ product.quantity }}</p>
+        
+                                                                        <div class="flex">
+                                                                            <button type="button"
+                                                                                class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+        
+                                            <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                                                <div class="flex justify-between text-base font-medium text-gray-900">
+                                                    <p>Subtotal</p>
+                                                    <p>$262.00</p>
+                                                </div>
+                                                <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at
+                                                    checkout.</p>
+                                                <div class="mt-6">
+                                                    <a href="#"
+                                                        class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700">Checkout</a>
+                                                </div>
+                                                <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                                                    <p>
+                                                        or{{ ' ' }}
+                                                        <button type="button"
+                                                            class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                            @click="open = false">
+                                                            Continue Shopping
+                                                            <span aria-hidden="true"> &rarr;</span>
+                                                        </button>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </DialogPanel>
+                                </TransitionChild>
+                            </div>
+                        </div>
+                    </div>
+                </Dialog>
+            </TransitionRoot>
+        </template>
+
+        <button @click="open = true" class="cart-icon">
+            🛒
+            <span class="cart-count">{{ cartCount }}</span>
+        </button>
+
+        <transition name="fade">
+            <div v-if="open" class="cart-panel">
+                <button @click="open = false">Zatvori ✖</button>
+                <h2>Shopping Cart</h2>
+                <ul>
+                    <li v-for="product in products" :key="product.id">
+                        {{ product.name }} - {{ product.price }} x {{ product.quantity }}
+                        <button @click="removeProduct(product.id)">Ukloni</button>
+                    </li>
+                </ul>
+                <p>Ukupno: {{ totalPrice }}€</p>
+            </div>
+        </transition>
+    </div>
+
+
     <section class="hero-shop">
         <h1>Naša Trgovina</h1>
-        <p>Otkrijte našu kolekciju pažljivo odabranih biljaka i dodataka za vaš dom i ured. Sve što trebate za stvaranje zelenog oaza.</p>
+        <p>Otkrijte našu kolekciju pažljivo odabranih biljaka i dodataka za vaš dom i ured. Sve što trebate za stvaranje
+            zelenog oaza.</p>
     </section>
 
     <section class="sale-banner">
@@ -80,18 +209,19 @@
 
     <section class="categories">
         <h2>Naši Proizvodi</h2>
-        
+
         <div class="category-tabs">
             <div class="category-tab active" data-category="all">Sve Kategorije</div>
             <div class="category-tab" data-category="indoor">Sobne Biljke</div>
             <div class="category-tab" data-category="outdoor">Vanjski Prostori</div>
             <div class="category-tab" data-category="accessories">Dodaci</div>
         </div>
-        
+
         <div class="products-grid">
             <div class="product-card" data-category="indoor">
                 <button class="quick-view">👁</button>
-                <img src="https://i.pinimg.com/736x/1d/56/73/1d56730eb87112fd177486f3cc3c362d.jpg" alt="Cvijece" class="product-image">
+                <img src="https://i.pinimg.com/736x/1d/56/73/1d56730eb87112fd177486f3cc3c362d.jpg" alt="Cvijece"
+                    class="product-image">
                 <div class="product-info">
                     <div class="product-rating">
                         <span class="star">★</span>
@@ -105,10 +235,11 @@
                     <button class="add-to-cart">Dodaj u Košaricu</button>
                 </div>
             </div>
-            
+
             <div class="product-card" data-category="indoor">
                 <button class="quick-view">👁</button>
-                <img src="https://i.pinimg.com/736x/dd/05/ce/dd05cee03299c8f7a89539bc03641d9c.jpg" alt="kaktus" class="product-image">
+                <img src="https://i.pinimg.com/736x/dd/05/ce/dd05cee03299c8f7a89539bc03641d9c.jpg" alt="kaktus"
+                    class="product-image">
                 <div class="product-info">
                     <div class="product-rating">
                         <span class="star">★</span>
@@ -125,7 +256,8 @@
 
             <div class="product-card" data-category="accessories">
                 <button class="quick-view">👁</button>
-                <img src="https://www.vinkoprom.com/wp-content/uploads/2022/03/46943.jpg" alt="Posuda" class="product-image">
+                <img src="https://www.vinkoprom.com/wp-content/uploads/2022/03/46943.jpg" alt="Posuda"
+                    class="product-image">
                 <div class="product-info">
                     <div class="product-rating">
                         <span class="star">★</span>
@@ -142,7 +274,8 @@
 
             <div class="product-card" data-category="indoor">
                 <button class="quick-view">👁</button>
-                <img src="https://inhome.decorexpro.com/images/galery/2647/sukkulenty_5fe98d6811334.jpg" alt="Sukulenta" class="product-image">
+                <img src="https://inhome.decorexpro.com/images/galery/2647/sukkulenty_5fe98d6811334.jpg" alt="Sukulenta"
+                    class="product-image">
                 <div class="product-info">
                     <div class="product-rating">
                         <span class="star">★</span>
@@ -159,7 +292,8 @@
 
             <div class="product-card" data-category="accessories">
                 <button class="quick-view">👁</button>
-                <img src="https://i.pinimg.com/736x/7d/23/1a/7d231a61f522b55d036ab40f5f8d1ff8.jpg" alt="Siva posuda" class="product-image">
+                <img src="https://i.pinimg.com/736x/7d/23/1a/7d231a61f522b55d036ab40f5f8d1ff8.jpg" alt="Siva posuda"
+                    class="product-image">
                 <div class="product-info">
                     <div class="product-rating">
                         <span class="star">★</span>
@@ -176,7 +310,8 @@
 
             <div class="product-card" data-category="indoor">
                 <button class="quick-view">👁</button>
-                <img src="https://i.pinimg.com/736x/73/ff/ec/73ffecb3d0561f0169eabbcdb9eb092e.jpg" alt="Maranta" class="product-image">
+                <img src="https://i.pinimg.com/736x/73/ff/ec/73ffecb3d0561f0169eabbcdb9eb092e.jpg" alt="Maranta"
+                    class="product-image">
                 <div class="product-info">
                     <div class="product-rating">
                         <span class="star">★</span>
@@ -193,7 +328,8 @@
 
             <div class="product-card" data-category="outdoor">
                 <button class="quick-view">👁</button>
-                <img src="https://ringnaturshop.com/wp-content/uploads/2022/01/Traditional-Medicinals_Chamomile-Tea_Kamille-Tee-2.jpg" alt="caj od kamilice" class="product-image">
+                <img src="https://ringnaturshop.com/wp-content/uploads/2022/01/Traditional-Medicinals_Chamomile-Tea_Kamille-Tee-2.jpg"
+                    alt="caj od kamilice" class="product-image">
                 <div class="product-info">
                     <div class="product-rating">
                         <span class="star">★</span>
@@ -210,7 +346,8 @@
 
             <div class="product-card" data-category="indoor">
                 <button class="quick-view">👁</button>
-                <img src="https://iracommerce.hr/images/thumbs/0012175_3-ktd915-1_625.jpeg" alt="Orhideja" class="product-image">
+                <img src="https://iracommerce.hr/images/thumbs/0012175_3-ktd915-1_625.jpeg" alt="Orhideja"
+                    class="product-image">
                 <div class="product-info">
                     <div class="product-rating">
                         <span class="star">★</span>
@@ -227,3 +364,35 @@
         </div>
         <script src="script.js"></script>
     </section>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    open: false,
+                    products: [
+                        { id: 1, name: 'Cvijeće', price: 74, quantity: 1 },
+                        { id: 2, name: 'Kaktus', price: 94, quantity: 1 },
+                    ],
+                };
+            },
+            computed: {
+                cartCount() {
+                    return this.products.reduce((sum, p) => sum + p.quantity, 0);
+                },
+                totalPrice() {
+                    return this.products.reduce((sum, p) => sum + p.price * p.quantity, 0);
+                },
+            },
+            methods: {
+                removeProduct(id) {
+                    this.products = this.products.filter(p => p.id !== id);
+                },
+            },
+        }).mount('#cart-app');
+    </script>
+
+</body>
+</html>
