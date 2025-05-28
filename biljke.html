@@ -1,63 +1,167 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Green Design</title>
+<head>
+    <title>Biljke - Green Design</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
-    </script>
-  </head>
-  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-leaf">🍃</div>
+        <div class="floating-leaf">🌿</div>
+        <div class="floating-leaf">🍃</div>
+        <div class="floating-leaf">🌱</div>
+    </div>
+
     <header class="navbar">
-      <div class="logo">
-        <img src="favicon.png" alt="Logo" style="height: 100px;">
-      </div>
-      <nav>
-        <ul>
-        <li><a href ="index.html">Početna</a></li>
-        <li><a href="biljke.html">Biljke</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="onama.html">O nama</a></li>
-        <li><a href="trgovina.html">Trgovina</a></li>
-      </ul>
-      </nav>
-      <div class="icons">
-        <input type="text" placeholder="Search">
-        <button>🔍</button>
-      </div>
+        <div class="logo">
+            <img src="favicon.png" alt="Logo" style="height: 100px;">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="biljke.html">Biljke</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="onama.html">O nama</a></li>
+                <li><a href="trgovina.html">Trgovina</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <input type="text" placeholder="Search">
+            <button>🔍</button>
+        </div>
     </header>
-    <section class="shop-layout">
-  <h2 style="text-align:center; margin-bottom: 20px;">Naši proizvodi</h2>
-  <div class="product-grid">
-    <div class="product-item">
-      <img src="https://via.placeholder.com/200x200" alt="Biljka 1">
-      <p>Biljka 1 - Opis biljke</p>
+
+    <section class="plants-hero">
+        <h1>Svijet Biljaka</h1>
+        <p>Otkrijte čarobni svijet biljaka koje ne zahtijevaju puno brige, a donose beskrajnu ljepotu i mir u vaš dom. Ove nezahtjevne ljepotice savršene su za sve koji žele zeleni oaza bez stresa.</p>
+    </section>
+    <div class="plants-content">
+        <section class="plant-section">
+            <div class="plant-text">
+                <h2>Pokrivače Tla za Neiskusne</h2>
+                <p>Pokrivne biljke su istinski heroji vrtlarstva - rastu svugdje gdje ih posadite i traže minimalno održavanje. Ove snažne biljke prirodno potiskuju korov i stvaraju prekrasan zeleni tepih koji se širi sezonom za sezonom.</p>
+                <p>Savršene su za područja gdje trava ne uspijeva rasti, na kosinama, u sjenovitim uglovima ili jednostavno tamo gdje želite dodati teksturu i boju bez konstantnog rada.</p>
+                <div class="plant-tips">
+                    <h4>Prednosti pokrivnih biljaka:</h4>
+                    <ul>
+                        <li>Smanjuju eroziju tla na kosinama</li>
+                        <li>Prirodno potiskuju korov</li>
+                        <li>Zahtijevaju minimalno zalivanje nakon uspostave</li>
+                        <li>Pružaju stanište korisnim insektima</li>
+                        <li>Dodaju teksturu i boju krajoliku</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plant-image-container">
+                <img src="https://i.pinimg.com/736x/84/81/54/8481547caf5cc12155edfeb35cba8777.jpg" alt="Pokrivne biljke" class="plant-image">
+                <div class="image-overlay"></div>
+            </div>
+        </section>
+
+        <section class="plant-section">
+            <div class="plant-text">
+                <h2>Sukulente - Majstori Preživljavanja</h2>
+                <p>Sukulente su evolucijski savršene za preživljavanje u najtežim uvjetima. Njihove mesnate lišće i stabljike pohranjuju vodu, što ih čini idealnima za sve koji često zaborave zalijeti svoje biljke.</p>
+                <p>Od klasičnih kaktusa do elegantnih echeveria, sukulente dolaze u beskrajnoj paleti oblika, veličina i boja. Mogu prosperirati u zatvorenom prostoru, na prozorskim daskama, ili u vanjskim vrtovima.</p>
+                <div class="plant-tips">
+                    <h4>Savjeti za uzgoj sukulent:</h4>
+                    <ul>
+                        <li>Zalijte tek kada je tlo potpuno suho</li>
+                        <li>Osigurajte dobru drenaži u posudama</li>
+                        <li>Postavite na světla mjesta, ali zaštićena od direktnog sunca</li>
+                        <li>Koristite posebnu zemlju za sukulente</li>
+                        <li>Zimi smanjite zalijevanje na minimum</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plant-image-container">
+                <img src="https://i.pinimg.com/736x/71/02/27/710227b32e5ef84b91a8057c7509b3ce.jpg" alt="Sukulente" class="plant-image">
+                <div class="image-overlay"></div>
+            </div>
+        </section>
+
+        <section class="plant-section">
+            <div class="plant-text">
+                <h2>Trajnice - Investicija za Budućnost</h2>
+                <p>Trajnice su biljke koje se vraćaju svake godine, postajući sve ljepše i veće. One su istinska investicija - jednom posađene, darivat će vam ljepotu godinama bez potrebe za ponovnim sadnjom.</p>
+                <p>Mnoge trajnice toleriraju sušu, hladnoću i loše tlo. Lavanda, ruzmarin, žalfija i timijon ne samo da su otporni, već vam pružaju i začine za kuhinju te prekrasne mirise u vrtu.</p>
+                <div class="plant-tips">
+                    <h4>Najotpornije trajnice:</h4>
+                    <ul>
+                        <li>Lavanda - mirisna i privlači pčele</li>
+                        <li>Ruzmarin - evergreen začin</li>
+                        <li>Očetkovina - cvijet u različitim bojama</li>
+                        <li>Dnevni ljiljan - izdržljiv i spektakularan</li>
+                        <li>Hostas - savršeni za sjenovita mjesta</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plant-image-container">
+                <img src="https://i.pinimg.com/736x/9b/44/72/9b4472bfd9af9e4847c93203aeeba46e.jpg" alt="Trajnice" class="plant-image">
+                <div class="image-overlay"></div>
+            </div>
+        </section>
+
+        <section class="plant-section">
+            <div class="plant-text">
+                <h2>Sobne Biljke za Čist Zrak</h2>
+                <p>Sobne biljke nisu samo ukrasni element - one su prirodni pročišćivači zraka koji uklanjaju toksine i povećavaju razinu kisika u vašem domu. NASA je istraživanjem potvrdila da mnoge biljke mogu značajno poboljšati kvalitetu zraka u zatvorenom prostoru.</p>
+                <p>Zmijski jezik, patuljasta palma, i pothos su među najefikasnijima u uklanjanju formaldehyda, benzena i drugih štetnih tvari iz zraka, a pritom zahtijevaju vrlo malo održavanja.</p>
+                <div class="plant-tips">
+                    <h4>Najbolje biljke za čišći zrak:</h4>
+                    <ul>
+                        <li>Zmijski jezik - izdržava zanemarivanje</li>
+                        <li>Pothos - raste u slabom svijetlu</li>
+                        <li>Spider plant - lako se razmnožava</li>
+                        <li>Rubber tree - elegantan i efikasan</li>
+                        <li>Peace lily - cvjeta u zatvorenom prostoru</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plant-image-container">
+                <img src="https://i.pinimg.com/736x/03/87/8c/03878cf79059fa8c72507b2b4f3f7a08.jpg" alt="Sobne biljke" class="plant-image">
+                <div class="image-overlay"></div>
+            </div>
+        </section>
     </div>
-    <div class="product-item">
-      <img src="https://via.placeholder.com/200x200" alt="Biljka 2">
-      <p>Biljka 2 - Opis biljke</p>
-    </div>
-    <div class="product-item">
-      <img src="https://via.placeholder.com/200x200" alt="Biljka 3">
-      <p>Biljka 3 - Opis biljke</p>
-    </div>
-    <div class="product-item">
-      <img src="https://via.placeholder.com/200x200" alt="Biljka 4">
-      <p>Biljka 4 - Opis biljke</p>
-    </div>
-    <div class="product-item">
-      <img src="https://via.placeholder.com/200x200" alt="Biljka 5">
-      <p>Biljka 5 - Opis biljke</p>
-    </div>
-    <div class="product-item">
-      <img src="https://via.placeholder.com/200x200" alt="Biljka 6">
-      <p>Biljka 6 - Opis biljke</p>
-    </div>
-  </div>
-</section>
+    <section class="care-guide">
+        <h2>Osnovni Vodič za Njegu</h2>
+        <div class="care-grid">
+            <div class="care-card">
+                <span class="care-icon">💧</span>
+                <h3>Pravilno Zalijevanje</h3>
+                <p>Većina biljaka trpi zbog prekomjernog zalijevanja. Provjerite tlo prstom - ako je suho 2-3 cm duboko, vrijeme je za zalijevanje. Zali duboko, ali rjeđe.</p>
+            </div>
+            <div class="care-card">
+                <span class="care-icon">☀️</span>
+                <h3>Odgovarajuće Osvjetljenje</h3>
+                <p>Različite biljke imaju različite potrebe za svjetlom. Čitajte etikete i prilagodite položaj biljke. Preopća su znakova: blijede lišće = previše svjetla, dugačke stabljike = premalo svjetla.</p>
+            </div>
+            <div class="care-card">
+                <span class="care-icon">🌱</span>
+                <h3>Kvalitetno Tlo</h3>
+                <p>Dobro tlo je temelj zdravih biljaka. Koristite kvalitetnu zemlju s dobrom drenažom. Dodajte kompost jednom godišnje za dodatne hranjive tvari.</p>
+            </div>
+            <div class="care-card">
+                <span class="care-icon">✂️</span>
+                <h3>Redovito Održavanje</h3>
+                <p>Uklanjajte uvenulo lišće i cvijeće redovito. Ovo potiče novi rast i sprječava bolesti. Kratko obrezivanje često rezultira bujnijim rastom.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="shop-cta">
+        <div class="shop-cta-content">
+            <h2>Stvorite Svoj Zeleni Raj</h2>
+            <p>Spremni ste transformirati svoj prostor s ovim nezahtjevnim ljepotanjem? Istražite našu pažljivo odabranu kolekciju biljaka koje će vam donijeti radost bez stresa.</p>
+            <a href="trgovina.html" class="elegant-shop-btn">
+                Istražite Našu Trgovinu
+            </a>
+        </div>
+    </section>
       <script src="script.js"></script>
-      Ovo je test
-      Ja volim Paulu
-  </body>
+</body>
 </html>

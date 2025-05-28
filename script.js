@@ -483,3 +483,50 @@ function checkout() {
 // Shopping cart functionality
 let cartItems = [];
 let cartTotal = 0;
+function animateOnScroll() {
+    const sections = document.querySelectorAll('.plant-section');
+    const windowHeight = window.innerHeight;
+    
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        
+        if (sectionTop < windowHeight * 0.8) {
+            section.classList.add('visible');
+        }
+    });
+}
+
+// Pokretanje animacije pri učitavanju i scrollovanju
+window.addEventListener('scroll', animateOnScroll);
+document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+// Dodatni efekt za care cards
+document.addEventListener('DOMContentLoaded', function() {
+    const careCards = document.querySelectorAll('.care-card');
+    
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    }, observerOptions);
+
+    careCards.forEach(card => {
+        observer.observe(card);
+    });
+});
+
+// Smooth hover efekt za shop button
+document.querySelector('.elegant-shop-btn').addEventListener('mouseenter', function() {
+    this.style.transform = 'translateY(-3px) scale(1.02)';
+});
+
+document.querySelector('.elegant-shop-btn').addEventListener('mouseleave', function() {
+    this.style.transform = 'translateY(0) scale(1)';
+});
