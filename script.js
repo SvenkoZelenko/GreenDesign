@@ -530,3 +530,90 @@ document.querySelector('.elegant-shop-btn').addEventListener('mouseenter', funct
 document.querySelector('.elegant-shop-btn').addEventListener('mouseleave', function() {
     this.style.transform = 'translateY(0) scale(1)';
 });
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Animate elements on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe all sections for animation
+document.querySelectorAll('.value-card, .expertise-card, .stat-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.8s ease-out';
+    observer.observe(el);
+});
+
+// Counter animation for statistics
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-item h3');
+    const speed = 200;
+
+    counters.forEach(counter => {
+        const animate = () => {
+            const value = +counter.getAttribute('data-target') || +counter.innerText.replace(/[^0-9]/g, '');
+            const data = +counter.innerText.replace(/[^0-9]/g, '');
+
+            const time = value / speed;
+
+            if (data < value) {
+                counter.innerText = Math.ceil(data + time) + (counter.innerText.includes('+') ? '+' : counter.innerText.includes('%') ? '%' : '');
+                setTimeout(animate, 1);
+            } else {
+                counter.innerText = counter.innerText;
+            }
+        };
+
+        // Store original value and start animation when visible
+        counter.setAttribute('data-target', counter.innerText.replace(/[^0-9]/g, ''));
+        
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    counter.innerText = '0' + (counter.innerText.includes('+') ? '+' : counter.innerText.includes('%') ? '%' : '');
+                    animate();
+                    statsObserver.unobserve(counter);
+                }
+            });
+        });
+
+        statsObserver.observe(counter);
+    });
+}
+
+// Initialize counter animation
+animateCounters();
+
+// Add parallax effect to hero section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    const rate = scrolled * -0.5;
+    
+    if (hero) {
+        hero.style.transform = `translateY(${rate}px)`;
+    }
+});
