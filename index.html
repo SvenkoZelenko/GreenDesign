@@ -1,60 +1,81 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Green Design</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
-    </script>
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="logo">
-        <img src="favicon.png" alt="Logo" style="height: 100px;">
-      </div>
-      <nav>
-        <ul>
-        <li><a href ="index.html">Početna</a></li>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Design - Početna</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="favicon.png" alt="Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Početna</a></li>
         <li><a href="biljke.html">Biljke</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="onama.html">O nama</a></li>
         <li><a href="trgovina.html">Trgovina</a></li>
       </ul>
-      </nav>
-      <div class="icons">
-        <input type="text" placeholder="Search">
-        <button>🔍</button>
-      </div>
-    </header>
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Tamo gdje cvate cvijeće, postoji nada</h1>
-        <p>Pronađite svoje omiljene biljke za dom ili ured. Povrće, Sjemenje, Citrusi, Voćke, Ljekovito bilje i još mnogo toga…</p>
-        <button>Naši proizvodi</button>
-        <p>280+ lokacija širom Hrvatske – uvijek u vašoj blizini. </p>
-      </div>
-      <div class="hero-image">
-        <img src="https://i.pinimg.com/736x/69/41/36/694136938e83fdd761b673cbd838856e.jpg" alt="Main plant">
-      </div>
-    </section>
-  
-    <section class="info">
-      <div class="info-block">
-        <img src="https://i.pinimg.com/564x/c6/a5/7f/c6a57f1cac35190f42bc12385a7b4337.jpg" alt="Decorative plant">
-        <div>
-          <h2>Ukrasite svoj dom prirodnom ljepotom</h2>
-          <p>Zelene biljke većinu svoje energije dobivaju iz sunčeve svjetlosti putem fotosinteze primarnih kloroplasta koji nastaju endosimbiozom s cijanobakterijama.</p>
-          <button>Pogledaj više</button>
-          <a href="trgovina.html"><button>Prikaži proizvode</button></a>
-        </div>
-      </div>
-    </section>
-    <footer style="text-align:center; padding: 2rem; font-size: 0.9rem; color: #666;">
-      &copy; 2025 Green Design. Sva prava pridržana.
-    </footer>
-      <script src="script.js"></script>
-      Ovo je test
-      Ja volim Paulu
-  </body>
+    </nav>
+    <div class="icons">
+      <input type="text" placeholder="Pretraži">
+      <button>🔍</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Zeleni Luksuz u Svakom Domu</h1>
+      <p>Doživite spoj prirode, elegancije i modernog dizajna. Naša kolekcija biljaka unosi ravnotežu, stil i svježinu u vaš životni prostor.</p>
+      <div class="established">Zelena harmonija od 2002.</div>
+    </div>
+  </section>
+
+  <section class="promo-sections">
+    <div class="promo-card">
+      <h3>Minimalni trud, maksimalni učinak</h3>
+      <p>Idealno za one koji žele ljepotu prirode bez komplicirane njege.</p>
+      <a href="biljke.html" class="shop-now-btn">Otkrij biljke</a>
+    </div>
+    <div class="promo-card">
+      <h3>Inspiracija za interijer</h3>
+      <p>Naše biljke pretvaraju vaš dom u luksuznu zelenu oazu.</p>
+      <a href="onama.html" class="shop-now-btn">Saznaj više</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <div class="feature-icon">🌱</div>
+      <h3>Njega bez stresa</h3>
+      <p>Odabrali smo biljke koje traže malo, a daju puno – savršeno za užurban životni stil.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🛋️</div>
+      <h3>Dizajniran u skladu s prostorom</h3>
+      <p>Bilo da uređujete dnevni boravak, ured ili balkon, mi imamo rješenje.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🌟</div>
+      <h3>Premium kvaliteta</h3>
+      <p>Samo najkvalitetnije i pažljivo uzgojene biljke, s dugim vijekom trajanja.</p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Unesite Eleganciju Prirode u Svoj Dom</h2>
+      <p>Pogledajte naš izbor i otkrijte kako zelenilo može promijeniti atmosferu vašeg doma.</p>
+      <a href="trgovina.html" class="cta-button">Kupi sada</a>
+    </div>
+  </section>
+  <footer style="text-align:center; padding: 2rem; font-size: 0.9rem; color: #666;">
+    &copy; 2025 Green Design. Sva prava pridržana.
+  </footer>
+  <script src="script.js"></script>
+</body>
 </html>
