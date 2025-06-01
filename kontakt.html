@@ -1,60 +1,78 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Green Design</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
-    </script>
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="logo">
-        <img src="favicon.png" alt="Logo" style="height: 100px;">
-      </div>
-      <nav>
-        <ul>
-        <li><a href ="index.html">Početna</a></li>
+
+<head>
+  <title>Green Design</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+  </script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="favicon.png" alt="Logo" style="height: 100px;">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Početna</a></li>
         <li><a href="biljke.html">Biljke</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="onama.html">O nama</a></li>
         <li><a href="trgovina.html">Trgovina</a></li>
       </ul>
-      </nav>
-      <div class="icons">
-        <input type="text" placeholder="Search">
-        <button>🔍</button>
+    </nav>
+    <div class="icons">
+      <input type="text" placeholder="Search">
+      <button>🔍</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>U kontaktu s prirodom – i s nama</h1>
+      <p>Imate pitanja, prijedloge ili jednostavno želite pozdraviti? Javite nam se putem obrasca ili posjetite naš
+        ured.</p>
+    </div>
+  </section>
+
+  <section class="kontakt-main">
+    <div class="kontakt-grid">
+      <div class="kontakt-card">
+        <h2>Naši podaci</h2>
+        <p><strong>📍 Lokacija:</strong> Zeleni Trg 12, 10000 Zagreb</p>
+        <p><strong>📧 Email:</strong> kontakt@greendesign.hr</p>
+        <p><strong>📞 Telefon:</strong> +385 91 234 5678</p>
+        <p><strong>🕒 Radno vrijeme:</strong> Pon – Pet: 08:00 – 17:00</p>
       </div>
-    </header>
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Tamo gdje cvate cvijeće, postoji nada</h1>
-        <p>Pronađite svoje omiljene biljke za dom ili ured. Povrće, Sjemenje, Citrusi, Voćke, Ljekovito bilje i još mnogo toga…</p>
-        <button>Naši proizvodi</button>
-        <p>280+ lokacija širom Hrvatske – uvijek u vašoj blizini. </p>
+
+      <div class="kontakt-card">
+        <h2>Pošaljite poruku</h2>
+        <form class="kontakt-forma" method="post" action="#">
+          <label for="ime">Ime i prezime</label>
+          <input type="text" id="ime" name="ime" required>
+
+          <label for="email">Email adresa</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="poruka">Poruka</label>
+          <textarea id="poruka" name="poruka" rows="5" required></textarea>
+
+          <button type="submit">Pošalji</button>
+        </form>
       </div>
-      <div class="hero-image">
-        <img src="https://i.pinimg.com/736x/69/41/36/694136938e83fdd761b673cbd838856e.jpg" alt="Main plant">
-      </div>
-    </section>
-  
-    <section class="info">
-      <div class="info-block">
-        <img src="https://i.pinimg.com/736x/69/41/36/694136938e83fdd761b673cbd838856e.jpg" alt="Decorative plant">
-        <div>
-          <h2>Ukrasite svoj dom prirodnom ljepotom</h2>
-          <p>Zelene biljke većinu svoje energije dobivaju iz sunčeve svjetlosti putem fotosinteze primarnih kloroplasta koji nastaju endosimbiozom s cijanobakterijama.</p>
-          <button>Pogledaj vise</button>
-          <a href="proizvodi.html"><button>Prikazi proizvode</button></a>
-        </div>
-      </div>
-    </section>
-      <script src="script.js"></script>
-      <footer style="text-align:center; padding: 2rem; font-size: 0.9rem; color: #666;">
-        &copy; 2025 Green Design. Sva prava pridržana.
-      </footer>
-      Ovo je test
-      Ja volim Paulu
-  </body>
+    </div>
+  </section>
+
+
+  <script src="script.js"></script>
+  <footer style="text-align:center; padding: 2rem; font-size: 0.9rem; color: #666;">
+    &copy; 2025 Green Design. Sva prava pridržana.
+  </footer>
+  Ovo je test
+  Ja volim Paulu
+</body>
+
 </html>
