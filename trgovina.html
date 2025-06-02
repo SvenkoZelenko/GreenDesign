@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </head>
 
 <body>
@@ -66,7 +67,7 @@
         <div class="sale-content">
             <h2>Veliki Popust</h2>
             <p class="discount">Popust do 20% za sve članove programa vjernosti</p>
-            <a href = "#anchor" id = "scroll-btn"><button class="discover-btn">Otkrijte Sada</button></a>
+            <a href="#anchor" id="scroll-btn"><button class="discover-btn">Otkrijte Sada</button></a>
         </div>
     </section>
 
@@ -102,164 +103,85 @@
     </section>
 
     <section class="categories">
-        <h2 id = "anchor">Naši Proizvodi</h2>
-
-        <div class="category-tabs">
-            <div class="category-tab active" data-category="all">Sve Kategorije</div>
-            <div class="category-tab" data-category="indoor">Sobne Biljke</div>
-            <div class="category-tab" data-category="outdoor">Vanjski Prostori</div>
-            <div class="category-tab" data-category="accessories">Dodaci</div>
-        </div>
-
-        <div class="products-grid">
-            <div class="product-card" data-category="indoor">
-                <button class="quick-view">👁</button>
-                <img src="https://i.pinimg.com/736x/1d/56/73/1d56730eb87112fd177486f3cc3c362d.jpg" alt="Cvijece"
-                    class="product-image">
-                <div class="product-info">
-                    <div class="product-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                    <div class="product-name">Cvijeće</div>
-                    <div class="product-price">€74.00</div>
-                    <button class="add-to-cart">Dodaj u Košaricu</button>
+        <h2 id="anchor">Naši Proizvodi</h2>
+        <div id="app">
+            <div class="category-tabs">
+                <div v-for="cat in categories" :key="cat.value" class="category-tab"
+                    :class="{ active: currentCategory === cat.value }" @click="currentCategory = cat.value">
+                    {{ cat.label }}
                 </div>
             </div>
-
-            <div class="product-card" data-category="indoor">
-                <button class="quick-view">👁</button>
-                <img src="https://i.pinimg.com/736x/dd/05/ce/dd05cee03299c8f7a89539bc03641d9c.jpg" alt="kaktus"
-                    class="product-image">
-                <div class="product-info">
-                    <div class="product-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <div class="product-name">Kaktus</div>
-                    <div class="product-price">€94.00</div>
-                    <button class="add-to-cart">Dodaj u Košaricu</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="accessories">
-                <button class="quick-view">👁</button>
-                <img src="https://www.vinkoprom.com/wp-content/uploads/2022/03/46943.jpg" alt="Posuda"
-                    class="product-image">
-                <div class="product-info">
-                    <div class="product-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                    <div class="product-name">Posuda</div>
-                    <div class="product-price">€59.00</div>
-                    <button class="add-to-cart">Dodaj u Košaricu</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="indoor">
-                <button class="quick-view">👁</button>
-                <img src="https://inhome.decorexpro.com/images/galery/2647/sukkulenty_5fe98d6811334.jpg" alt="Sukulenta"
-                    class="product-image">
-                <div class="product-info">
-                    <div class="product-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <div class="product-name">Sukulenta</div>
-                    <div class="product-price">€74.00</div>
-                    <button class="add-to-cart">Dodaj u Košaricu</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="accessories">
-                <button class="quick-view">👁</button>
-                <img src="https://i.pinimg.com/736x/7d/23/1a/7d231a61f522b55d036ab40f5f8d1ff8.jpg" alt="Siva posuda"
-                    class="product-image">
-                <div class="product-info">
-                    <div class="product-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                    <div class="product-name">Siva Posuda</div>
-                    <div class="product-price">€45.00</div>
-                    <button class="add-to-cart">Dodaj u Košaricu</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="indoor">
-                <button class="quick-view">👁</button>
-                <img src="https://i.pinimg.com/736x/73/ff/ec/73ffecb3d0561f0169eabbcdb9eb092e.jpg" alt="Maranta"
-                    class="product-image">
-                <div class="product-info">
-                    <div class="product-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <div class="product-name">Maranta Miksa</div>
-                    <div class="product-price">€85.00</div>
-                    <button class="add-to-cart">Dodaj u Košaricu</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="outdoor">
-                <button class="quick-view">👁</button>
-                <img src="https://ringnaturshop.com/wp-content/uploads/2022/01/Traditional-Medicinals_Chamomile-Tea_Kamille-Tee-2.jpg"
-                    alt="caj od kamilice" class="product-image">
-                <div class="product-info">
-                    <div class="product-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">★</span>
-                    </div>
-                    <div class="product-name">Čaj od Kamilice</div>
-                    <div class="product-price">€67.00</div>
-                    <button class="add-to-cart">Dodaj u Košaricu</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="indoor">
-                <button class="quick-view">👁</button>
-                <img src="https://iracommerce.hr/images/thumbs/0012175_3-ktd915-1_625.jpeg" alt="Orhideja"
-                    class="product-image">
-                <div class="product-info">
-                    <div class="product-rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <div class="product-name">Orhideja</div>
-                    <div class="product-price">€92.00</div>
-                    <button class="add-to-cart">Dodaj u Košaricu</button>
-                </div>
+        
+            <div class="products-grid">
+                <product-card v-for="product in filteredProducts" :key="product.name" :product="product"
+                    @add-to-cart="addToCart"></product-card>
             </div>
         </div>
-        <div id="no-results" style="text-align:center; color:#2a5d43; font-weight:bold; display:none; margin-top:1rem;">
-            Artikl nije pronađen.
-        </div>
-    </section>
+        
+        <script>
+            Vue.component('product-card', {
+                props: ['product'],
+                template: `
+                        <div class="product-card">
+                          <img :src="product.image" :alt="product.name" class="product-image" />
+                          <div class="product-info">
+                            <div class="product-rating">
+                              <span v-for="n in 5" :key="n" class="star" :class="{ empty: n > product.rating }">★</span>
+                            </div>
+                            <div class="product-name">{{ product.name }}</div>
+                            <div class="product-price">€{{ product.price.toFixed(2) }}</div>
+                            <button class="add-to-cart" @click="$emit('add-to-cart', product)">Dodaj u Košaricu</button>
+                            <button class="quick-view">👁</button>
+                          </div>
+                        </div>
+                      `
+            });
+
+            new Vue({
+                el: '#app',
+                data: {
+                    currentCategory: 'all',
+                    categories: [
+                        { label: 'Sve Kategorije', value: 'all' },
+                        { label: 'Sobne Biljke', value: 'indoor' },
+                        { label: 'Vanjski Prostori', value: 'outdoor' },
+                        { label: 'Dodaci', value: 'accessories' }
+                    ],
+                    products: [
+                        { name: 'Hosta', category: 'outdoor', image: 'https://www.gardenia.net/wp-content/uploads/2023/05/hosta-First-Frost-plantain-lily.webp', price: 14.99, rating: 4.2 },
+                        { name: 'Starčeva brada kaktus', category: 'indoor', image: 'https://gardenerspath.com/wp-content/uploads/2022/08/Potted-Old-Man-Cactus.jpg', price: 19.99, rating: 4.8 },
+                        { name: 'Posuda', category: 'accessories', image: 'https://www.vinkoprom.com/wp-content/uploads/2022/03/46943.jpg', price: 8.49, rating: 4.7 },
+                        { name: 'Sukulenta', category: 'indoor', image: 'https://inhome.decorexpro.com/images/galery/2647/sukkulenty_5fe98d6811334.jpg', price: 6.99, rating: 3.9 },
+                        { name: 'Siva posuda', category: 'accessories', image: 'https://i.pinimg.com/736x/7d/23/1a/7d231a61f522b55d036ab40f5f8d1ff8.jpg', price: 5.99, rating: 4.3 },
+                        { name: 'Maranta miksa', category: 'accessories', image: 'https://i.pinimg.com/736x/73/ff/ec/73ffecb3d0561f0169eabbcdb9eb092e.jpg', price: 11.99, rating: 4.1 },
+                        { name: 'Plave hortenzije', category: 'outdoor', image: 'https://www.tnnursery.net/cdn/shop/files/blue-hydrangea-tn-nursery-3.jpg?v=1736957226&width=852', price: 16.49, rating: 4.9 },
+                        { name: 'Ljubičaste krizanteme', category: 'outdoor', image: 'https://johnsons-seeds.com/cdn/shop/files/late-despatch-5-young-plants-woolmans-chrysanthemum-regal-mist-purple-1153861040.jpg?v=1746256842', price: 13.99, rating: 4.5 },
+                        { name: 'Žuta repica', category: 'outdoor', image: 'https://miro.medium.com/v2/resize:fit:1400/0*yJG5CUAXfQg1_RkC', price: 7.99, rating: 3.8 },
+                        { name: 'Kalateja orbifolija', category: 'indoor', image: 'https://www.gardenia.net/wp-content/uploads/2024/02/shutterstock_2250890105.jpg', price: 18.50, rating: 4.6 },
+                        { name: 'Krunica', category: 'indoor', image: 'https://images.squarespace-cdn.com/content/v1/5b042b8855b02c5ea10c0863/1529102583720-JMTSCZUJGGQYN3P8JNPW/String_of_Pearls_Senecio_rowleyanus', price: 12.99, rating: 4.4 },
+                        { name: 'Kukurijek', category: 'outdoor', image: 'https://littleprinceplants.com/wp-content/uploads/2022/10/HGC-Ice-N-Roses-Red-2-scaled.jpg.webp', price: 14.75, rating: 4.3 },
+                        { name: 'Karanfil', category: 'outdoor', image: 'https://www.realsimple.com/thmb/UdLVr7m50l8MwdGGVE8kZsZTdZ0=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/dianthus-kahori_0-41b3a9ef5eed4a77898bce2efcb9b035.jpg', price: 9.49, rating: 4.0 },
+                        { name: 'Filodendron', category: 'accessories', image: 'https://www.shoppigment.com/cdn/shop/files/6_-Philodendron-melanochrysum_Lucy-Ballerina.jpg?v=1723665571&width=2048', price: 21.99, rating: 4.7 },
+                        { name: 'Kineski zimzelen', category: 'indoor', image: 'https://images.squarespace-cdn.com/content/v1/5e1a9e93d343ec0c523f4074/1690891844770-LD69WX6Y8ISVFKCV0NC5/Amazon_Chinese_Evergreen_Red.jpg?format=500w', price: 13.49, rating: 4.5 }
+                    ],
+                    cart: []
+                },
+                computed: {
+                    filteredProducts() {
+                        if (this.currentCategory === 'all') {
+                            return this.products;
+                        }
+                        return this.products.filter(p => p.category === this.currentCategory);
+                    }
+                },
+                methods: {
+                    addToCart(product) {
+                        this.cart.push(product);
+                        alert(`${product.name} dodan u košaricu!`);
+                    }
+                }
+            });
+        </script>
 
     <footer style="text-align:center; padding: 2rem; font-size: 0.9rem; color: #666;">
         &copy; 2025 Green Design. Sva prava pridržana.
