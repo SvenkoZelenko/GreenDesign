@@ -632,3 +632,16 @@ window.addEventListener('scroll', () => {
         hero.style.transform = `translateY(${rate}px)`;
     }
 });
+
+//sporiji skrolling na "otkrijte sada" na trgovini
+document.getElementById('scroll-btn').addEventListener('click', function (e) {
+    e.preventDefault(); // stop default jump behavior
+
+    const target = document.getElementById('anchor');
+    const offsetTop = target.offsetTop;
+
+    window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+    });
+});
